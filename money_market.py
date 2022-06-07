@@ -45,10 +45,10 @@ class MoneyMarketAccount(Account):
     def reset_transactions(self):
         self.transactions = 0    ##### Call with instance.reset_transactions()
 
-money = MoneyMarketAccount(20000)
-print(money.balance)
-money.add_interest(0.25)
-print(money.balance)
+# money = MoneyMarketAccount(20000)
+# print(money.balance)
+# money.add_interest(0.25)
+# print(money.balance)
 # money.withdraw(1000)
 # print(money.transactions)
 # money.withdraw(1000)

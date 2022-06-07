@@ -1,4 +1,6 @@
-#from owner import Owner
+#from csv import DictReader
+
+import csv
 ID = 0
 
 class Account:
@@ -26,16 +28,32 @@ class Account:
     def deposit(self, deposit):
         self.balance += deposit
 
+    def _all_accounts(self):
+        file_path = (f'./support/accounts.csv')
+        with open(file_path) as accounts:
+            csv_reader = csv.reader(accounts, delimiter=',')
+            for row in csv_reader:
+                print(f'ID: {row[0]} \tBalance: ${"${:,.2f}".format(int(row[1]))} \tOpen Date:{row[2]}.')
+
+    def _find(self, id):
+        self.id = id
+        file_path = (f'./support/accounts.csv')
+        with open(file_path) as accounts:
+            csv_reader = csv.reader(accounts, delimiter=',')
+            for row in csv_reader:
+                if int(row[0]) == self.id:
+                    print(f'ID: {row[0]} \tBalance: ${"${:,.2f}".format(int(row[1]))} \tOpen Date:{row[2]}.')
+
 
 
 #####################
 #test_account = Account(1000, 'Craig', 'Bucher', 'Chicago somewhere', '739-8994', 'craig@mail.com')
-#test_account = Account(1000)
-
+test_account = Account(1000)
+#print(test_account.balance)
+test_account._find(15153)
 # test_account.withdraw(1001)
 
 #print(test_account.balance)
 
 #test_account.deposit(600)
 
-#print(test_account.balance)

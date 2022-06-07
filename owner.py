@@ -15,5 +15,5 @@ class Owner:
     #     Email address: {self.email}
     #     """)
 
-craig = Owner('Craig', 'Bucher', 'Chicago somewhere', '739-8994', 'craig@mail.com')
-print(craig)
+# craig = Owner('Craig', 'Bucher', 'Chicago somewhere', '739-8994', 'craig@mail.com')
+# print(craig)
