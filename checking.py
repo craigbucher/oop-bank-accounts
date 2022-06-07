@@ -8,7 +8,7 @@ class Checking(Account):
         parent_instance.__init__(balance)
         if self.balance < 0:
             raise ValueError("Sorry, account balance can't be less than $0")
-        checks = 0
+        self.checks = 0
 
     def deposit(self, amount):
         self.balance += amount
@@ -33,16 +33,16 @@ class Checking(Account):
             else:
                 print('Overdraft may not be more than -$10')
     
-    def reset_checks(self):   ########## doesn't work
+    def reset_checks(self):   ##### Call with instance.reset_checks()
         self.checks = 0
 
-testcheck = Checking(2000)
-print(testcheck.balance)
-testcheck.withdraw_using_check(500)
-testcheck.withdraw_using_check(100)
-testcheck.withdraw_using_check(100)
-testcheck.withdraw_using_check(100)
-print(testcheck.balance)
-print(testcheck.checks)
-testcheck.reset_checks
-print(testcheck.checks)
+# testcheck = Checking(2000)
+# print(testcheck.balance)
+# testcheck.withdraw_using_check(500)
+# testcheck.withdraw_using_check(100)
+# testcheck.withdraw_using_check(100)
+# testcheck.withdraw_using_check(100)
+# print(testcheck.balance)
+# print(testcheck.checks)
+# testcheck.reset_checks()
+# print(testcheck.checks)
