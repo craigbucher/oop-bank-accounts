@@ -1,5 +1,4 @@
 from argparse import ArgumentError
-from cgi import test
 from account import Account
 
 class Checking(Account):
@@ -9,10 +8,13 @@ class Checking(Account):
         parent_instance.__init__(balance)
         if self.balance < 0:
             raise ValueError("Sorry, account balance can't be less than $0")
-   
+
+     def deposit(self, amount):
+        self.balance += amount
+
     def withdraw(self, debit):
         if (self.balance - (debit + 1)) < 0:
-            print('Sorry, account balances cannot be less than $0')
+            print('Sorry, account balances cannot be less than $10000')
         else:
             self.balance -= (debit + 1)
     

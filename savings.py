@@ -16,6 +16,9 @@ class Savings(Account):
         else:
             self.balance -= (debit +2)
 
+    def deposit(self, amount):
+        self.balance += amount
+
     def add_interest(self, rate):
         interest = (self.balance * rate) / 100
         self.balance += interest
