@@ -2,14 +2,15 @@ from argparse import ArgumentError
 from account import Account
 
 class Checking(Account):
-    checks = 0
+    
     def __init__(self, balance):
         parent_instance = super()
         parent_instance.__init__(balance)
         if self.balance < 0:
             raise ValueError("Sorry, account balance can't be less than $0")
+        checks = 0
 
-     def deposit(self, amount):
+    def deposit(self, amount):
         self.balance += amount
 
     def withdraw(self, debit):
