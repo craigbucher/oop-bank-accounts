@@ -2,13 +2,14 @@ from argparse import ArgumentError
 from account import Account
 
 class MoneyMarketAccount(Account):
-    transactions = 0
-    low_balance = False
+
     def __init__(self, balance):
         parent_instance = super()
         parent_instance.__init__(balance)
         if self.balance < 10000:
             raise ValueError("Sorry, account balance can't be less than $10000")
+        self.transactions = 0
+        self.low_balance = False
     
     def withdraw(self, debit):
         if self.transactions < 6:
@@ -30,6 +31,7 @@ class MoneyMarketAccount(Account):
         if self.transactions < 6:
             if self.low_balance:
                 self.balance += amount
+                self.low_balance = False
             else:
                 self.balance += amount
                 self.transactions += 1
